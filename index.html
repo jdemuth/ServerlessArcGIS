@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+	<title> Serverless ArcGIS </title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.16/"></script>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView",
+		"esri/Graphic",
+		"esri/layers/GraphicsLayer",
+        "esri/layers/FeatureLayer"
+      ], function (
+	Map, 
+	MapView, 
+	Graphic, 
+	GraphicsLayer, 
+	FeatureLayer
+	  ) {
+        var map = new Map({
+          basemap: "streets-night-vector"
+        });
+
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [20.80500, 15.02700],
+          zoom: 2
+        });
+
+/*
+var graphicsLayer = new GraphicsLayer();
+map.add(graphicsLayer);
+
+var cr = 226;
+var cg = 119;
+var cb = 40;
+var simpleMarkerSymbol = { type: "simple-marker",  color: [cr, cg, cb]  };
+
+var point = { type: "point", longitude: 178.065033, latitude: -17.713371 };
+var pointGraphic = new Graphic({ geometry: point, symbol: simpleMarkerSymbol });
+graphicsLayer.add(pointGraphic);
+
+*/
+
+/*
+var request = new XMLHttpRequest()
+var url = ""
+request.open('GET', url, true)
+request.onload = function() 
+{
+    var data = this.response
+var obj = JSON.parse(data);
+  for (var item of obj) 
+  {
+var point = { type: "point", longitude: item.longitude, latitude: item.latitude };
+var pointGraphic = new Graphic({ geometry: point, symbol: simpleMarkerSymbol });
+graphicsLayer.add(pointGraphic);
+  }
+}
+request.send()
+*/
+
+/*
+var featureLayer = new FeatureLayer({ url: "" });
+map.add(featureLayer);
+*/
+
+});
+ 
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
